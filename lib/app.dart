@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+
 import 'src/config/di/injection.dart';
 import 'src/config/routes/app_router.dart';
 
@@ -19,6 +21,7 @@ class MyApp extends StatelessWidget {
 
 init() async {
   WidgetsFlutterBinding.ensureInitialized();
+
 
   configureDependencies();
 }

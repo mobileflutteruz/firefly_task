@@ -9,7 +9,7 @@ class AppRouter {
   const AppRouter._();
 
   static final router = GoRouter(
-    initialLocation: Routes.splash,
+    initialLocation: Routes.chooseGender,
     routes: [
       // / Main
        GoRoute(
