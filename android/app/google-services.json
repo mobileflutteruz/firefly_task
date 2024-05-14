@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "719260730895",
+    "project_id": "firefly-task",
+    "storage_bucket": "firefly-task.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:719260730895:android:6a7e0e1a04560c1ecd057a",
+        "android_client_info": {
+          "package_name": "com.example.firefly_task"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCqkpJax0RDp0hZjMVSbYX0C_whZsRyaOQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
