@@ -1,5 +1,6 @@
 import 'package:firefly_task/src/presentation/screen/auth/choose_gender/choose_gender.dart';
 import 'package:firefly_task/src/presentation/screen/auth/hobits/habits_page.dart';
+import 'package:firefly_task/src/presentation/screen/auth/login/login_page.dart';
 import 'package:firefly_task/src/presentation/screen/auth/register/register_page.dart';
 import 'package:firefly_task/src/presentation/screen/auth/splash/splash_page.dart';
 import 'package:firefly_task/src/presentation/screen/home/home_screen.dart';
@@ -9,13 +10,18 @@ class AppRouter {
   const AppRouter._();
 
   static final router = GoRouter(
-    initialLocation: Routes.chooseGender,
+    initialLocation: Routes.loginPage,
     routes: [
       // / Main
        GoRoute(
         path: Routes.splash,
         name: Routes.splash,
         builder: (context, state) =>  SplashPage(),
+      ),
+          GoRoute(
+        path: Routes.loginPage,
+        name: Routes.loginPage,
+        builder: (context, state) =>  LoginPage(),
       ),
       GoRoute(
         path: Routes.register,
@@ -45,9 +51,11 @@ class Routes {
   const Routes._();
 
   /// Main
-  static const String splash = "/";
+  static const String splash = "/splash";
   static const String home = "/home";
   static const String register = "/register";
+  static const String loginPage = "/";
+
   static const String chooseGender = "/chooseGender";
   static const String habitsPage = "/habitsPage";
 }
