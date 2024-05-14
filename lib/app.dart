@@ -9,7 +9,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       title: 'Flutter Demo',
-      routerConfig: AppRouter.router,
+      debugShowCheckedModeBanner: false,
+      routerConfig: AppRouter.router, 
+     
+      
     );
   }
 }
