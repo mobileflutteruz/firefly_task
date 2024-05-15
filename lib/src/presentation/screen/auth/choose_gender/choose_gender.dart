@@ -1,9 +1,11 @@
+import 'package:firefly_task/src/config/routes/app_router.dart';
+import 'package:firefly_task/src/core/constants/image_const.dart';
 import 'package:firefly_task/src/data/permanent/permanent_db.dart';
 import 'package:firefly_task/src/presentation/screen/auth/choose_gender/gender.dart';
-import 'package:firefly_task/src/presentation/screen/auth/hobits/habit_item.dart';
 import 'package:firefly_task/src/presentation/screen/auth/register/components/button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
+
 
 class ChooseGender extends StatelessWidget {
   const ChooseGender({super.key});
@@ -16,23 +18,28 @@ class ChooseGender extends StatelessWidget {
         elevation: 0,
         title: Row(
           children: [
-            Container(
-              height: 48,
-              width: 48,
-              padding: const EdgeInsets.only(left: 10),
-              decoration: BoxDecoration(
-                border: Border.all(
-                  color: const Color(0xffEAECF0),
-                  width: 2,
+            GestureDetector(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: Container(
+                height: 48,
+                width: 48,
+                padding: const EdgeInsets.only(left: 10),
+                decoration: BoxDecoration(
+                  border: Border.all(
+                    color: const Color(0xffEAECF0),
+                    width: 2,
+                  ),
+                  borderRadius: const BorderRadius.all(
+                    Radius.circular(16),
+                  ),
                 ),
-                borderRadius: const BorderRadius.all(
-                  Radius.circular(16),
+                alignment: Alignment.center, // Align the content in the center
+                child: const Icon(
+                  Icons.arrow_back_ios,
+                  size: 24,
                 ),
-              ),
-              alignment: Alignment.center, // Align the content in the center
-              child: const Icon(
-                Icons.arrow_back_ios,
-                size: 24,
               ),
             ),
             const SizedBox(width: 8), // Adding space between icon and text
@@ -67,7 +74,6 @@ class ChooseGender extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                   
                     Wrap(
                       spacing: 24, // Gap between containers
                       runSpacing: 16,
@@ -75,9 +81,7 @@ class ChooseGender extends StatelessWidget {
                       children:
                           List.generate(PermanentDB.gender.length, (index) {
                         return GenderItem(
-                          onTap: () {
-                          
-                          },
+                          onTap: () {},
                           index: index,
                           imageLink: PermanentDB.gender.keys
                               .toList()[index]
@@ -92,7 +96,14 @@ class ChooseGender extends StatelessWidget {
                 ),
               ],
             ),
-             Button(title: "Next", color: Color(0xFF543B59), icon: "",),
+            Button(
+              title: "Next",
+              color: Color(0xFF543B59),
+              icon: ImageConst.login, 
+              onTap: (){ 
+                 context.pushNamed(Routes.habitsPage);
+              },
+            ),
           ],
         ),
       ),

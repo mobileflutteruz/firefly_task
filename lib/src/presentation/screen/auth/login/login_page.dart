@@ -1,10 +1,18 @@
 import 'package:firefly_task/src/presentation/screen/auth/register/components/button.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
 
+class LoginPage extends StatefulWidget {
+   LoginPage({super.key});
+
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+
+
+  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -63,7 +71,9 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 TextFormField(
+                  // controller: email,
                   decoration: const InputDecoration(
+                    
                     labelStyle: TextStyle(
                       color: Color(0xFF040415),
                       fontSize: 18,
@@ -100,6 +110,7 @@ class LoginPage extends StatelessWidget {
                   ),
                 ),
                 TextFormField(
+                  // controller: pass,
                   decoration: const InputDecoration(
                     label: Text("Enter your password"),
                     labelStyle: TextStyle(

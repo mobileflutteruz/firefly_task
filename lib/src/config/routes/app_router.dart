@@ -11,7 +11,7 @@ class AppRouter {
   const AppRouter._();
 
   static final router = GoRouter(
-    initialLocation: Routes.onbording,
+    initialLocation: Routes.splash,
     routes: [
       // / Main
       GoRoute(
@@ -57,11 +57,11 @@ class Routes {
   const Routes._();
 
   /// Main
-  static const String splash = "/splash";
+  static const String splash = "/";
   static const String home = "/home";
   static const String register = "/register";
   static const String loginPage = "/loginPage";
-  static const String onbording = "/";
+  static const String onbording = "/onbording";
 
   static const String chooseGender = "/chooseGender";
   static const String habitsPage = "/habitsPage";

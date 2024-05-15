@@ -1,8 +1,11 @@
+import 'package:firefly_task/src/config/routes/app_router.dart';
 import 'package:firefly_task/src/core/constants/color_const.dart';
+import 'package:firefly_task/src/core/constants/image_const.dart';
 import 'package:firefly_task/src/data/permanent/permanent_db.dart';
 import 'package:firefly_task/src/presentation/screen/auth/hobits/habit_item.dart';
 import 'package:firefly_task/src/presentation/screen/auth/register/components/button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HabitsPage extends StatefulWidget {
   HabitsPage({super.key});
@@ -89,9 +92,7 @@ class _HabitsPageState extends State<HabitsPage> {
                       children:
                           List.generate(PermanentDB.habits.length, (index) {
                         return HabitItem(
-                          onTap: () {
-                          
-                          },
+                          onTap: () {},
                           index: index,
                           imageLink: PermanentDB.habits.keys
                               .toList()[index]
@@ -106,7 +107,14 @@ class _HabitsPageState extends State<HabitsPage> {
                 ),
               ),
             ),
-             Button(title: "Next", color: Color(0xFF543B59), icon: "",),
+            Button(
+              title: "Next",
+              color: Color(0xFF543B59),
+              icon: ImageConst.login,
+              onTap: () {
+                context.go(Routes.home);
+              },
+            ),
           ],
         ),
       ),

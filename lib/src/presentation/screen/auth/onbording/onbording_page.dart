@@ -1,7 +1,9 @@
+import 'package:firefly_task/src/config/routes/app_router.dart';
 import 'package:firefly_task/src/core/constants/image_const.dart';
 import 'package:firefly_task/src/data/permanent/permanent_db.dart';
 import 'package:firefly_task/src/presentation/screen/auth/register/components/button.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class OnboardingPage extends StatefulWidget {
   @override
@@ -55,7 +57,9 @@ class _OnboardingPageState extends State<OnboardingPage> {
               color: Colors.white,
               icon: ImageConst.login,
               title: "Continue with E-mail",
-              onTap: () {},
+              onTap: () { 
+                 context.pushNamed(Routes.loginPage);
+              },
             ),
             const SizedBox(
               height: 20,
