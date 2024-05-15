@@ -39,9 +39,14 @@ class AuthRepository {
     return credential.user;
   }
 
-  Future<User?> signUp(String password, String email) async {
+  Future<User?> signUp({
+    required String email,
+    required String password,
+  }) async {
     final credential = await _auth.createUserWithEmailAndPassword(
-        email: email, password: password);
+        email: email, password: password,
+
+    );
     final user = credential.user!;
     return user;
   }

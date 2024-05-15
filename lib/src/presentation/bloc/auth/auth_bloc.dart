@@ -43,11 +43,11 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     print(" await InternetConnectionChecker().hasConnection;--------------------${result}");
 
     try {
-      final result = await authRepo.signUp(event.email, event.password);
+      final result = await authRepo.signUp(email:event.email,password:  event.password);
       if (result == null) {
         return emit(state.copyWith(status: AuthStatus.failure));
       }
-      emit(state.copyWith(status: AuthStatus.failure));
+      emit(state.copyWith(status: AuthStatus.succes));
     } catch (e) {
       debugPrint("_signUp Error------------------------------------${e.toString()}");
       emit(state.copyWith(status: AuthStatus.failure));
