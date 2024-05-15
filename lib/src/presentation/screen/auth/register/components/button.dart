@@ -1,10 +1,28 @@
 import 'package:flutter/material.dart';
 
-class Button extends StatelessWidget {
+class Button extends StatefulWidget {
+  final String title;
+
+  final String icon;
+  final Color color;
+
+  late Function()? onTap;
+  Button(
+      {super.key,
+      this.onTap,
+      required this.title,
+      required this.icon,
+      required this.color});
+
+  @override
+  State<Button> createState() => _ButtonState();
+}
+
+class _ButtonState extends State<Button> {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){},
+      onTap: widget.onTap,
       child: Column(
         children: [
           Container(
@@ -12,21 +30,24 @@ class Button extends StatelessWidget {
             height: 52,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: ShapeDecoration(
-              color: Color(0xFF543B59),
+              color: widget.color,
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(40),
               ),
             ),
             child: Row(
-              mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
+                Image.asset(widget.icon),
+                SizedBox(
+                  width: 10,
+                ),
                 Text(
-                  'Next',
+                  widget.title,
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Colors.white,
+                    color: Color(0xFF040415),
                     fontSize: 14,
                     fontFamily: 'Airbnb Cereal',
                     fontWeight: FontWeight.w500,

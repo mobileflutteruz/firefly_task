@@ -3,7 +3,7 @@ import 'app.dart';
 
 Future<void> main() async {
   await init();
-  runApp(const MyApp());
+  runApp( MyApp());
 }
 
 /// flutter run -d windows

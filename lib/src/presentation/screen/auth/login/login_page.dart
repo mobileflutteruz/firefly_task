@@ -137,16 +137,19 @@ class LoginPage extends StatelessWidget {
               ],
             ),
             Column(
-              
-              children: [ 
+              children: [
                 TextButton(
-                onPressed: () {},
-                child: Text("Don’t have account? Let’s create!",
-                    style: TextStyle(
-                      fontSize: 14,
-                      fontWeight: FontWeight.w500,
-                    ))),
-            Button(),
+                    onPressed: () {},
+                    child: Text("Don’t have account? Let’s create!",
+                        style: TextStyle(
+                          fontSize: 14,
+                          fontWeight: FontWeight.w500,
+                        ))),
+                Button(
+                  title: "Next",
+                  color: Color(0xFF543B59),
+                  icon: "",
+                ),
               ],
             ),
           ],

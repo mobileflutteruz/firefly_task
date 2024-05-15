@@ -14,9 +14,16 @@ class PermanentDB {
   };
 
   static Map<String, String?> gender = {
-       ImageConst.male : "Male",
-     ImageConst.female : "Female",
- 
-   
-  } ;
+    ImageConst.male: "Male",
+    ImageConst.female: "Female",
+  };
+
+  static Map<String, String?> onbording = {
+    ImageConst.users: "Create Good Habits",
+    ImageConst.users2: "Track Your Progress",
+  };
+  static List subtitle = [
+    "hange your life by slowly adding new healty habits and sticking to them.", 
+    'Everyday you become one step closer to\nyour goal. Don’t give up!',
+  ]; 
 }

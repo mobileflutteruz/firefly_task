@@ -106,7 +106,7 @@ class _HabitsPageState extends State<HabitsPage> {
                 ),
               ),
             ),
-            Button(),
+             Button(title: "Next", color: Color(0xFF543B59), icon: "",),
           ],
         ),
       ),

@@ -166,7 +166,7 @@ class Register extends StatelessWidget {
                 ),
               ],
             ),
-            Button(),
+            Button(title: "Next", color: Color(0xFF543B59), icon: "",),
           ],
         ),
       ),

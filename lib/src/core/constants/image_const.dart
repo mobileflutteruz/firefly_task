@@ -13,6 +13,19 @@ class ImageConst {
   static String study = "assets/images/study.png";
   static String tomchi = "assets/images/tomchi.png";
   static String tree = "assets/images/tree.png";
+  static String background = "assets/images/back.png";
+  static String logo = "assets/images/logo.svg";
+  static String users = "assets/images/users.png";
+  static String apple = "assets/images/apple.png";
+  static String google = "assets/images/google.png";
+  static String facebook = "assets/images/facebook.png";
+  static String login = "assets/images/login.png";
+
+
+  static String users2 = "assets/images/users.png";
+
+
+
 
 
 
