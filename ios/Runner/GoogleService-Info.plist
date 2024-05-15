@@ -3,17 +3,17 @@
 <plist version="1.0">
 <dict>
 	<key>API_KEY</key>
-	<string>AIzaSyAb2LxTkljEJjqRnYTI4wqM-QT9hFBEnLo</string>
+	<string>AIzaSyA43IeCJp2HEtbNFnMgM4Hc2UhZo1OZHhg</string>
 	<key>GCM_SENDER_ID</key>
-	<string>719260730895</string>
+	<string>510368523955</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>com.example.fireflyTask</string>
 	<key>PROJECT_ID</key>
-	<string>firefly-task</string>
+	<string>firefly-b98c5</string>
 	<key>STORAGE_BUCKET</key>
-	<string>firefly-task.appspot.com</string>
+	<string>firefly-b98c5.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -25,6 +25,6 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:719260730895:ios:1b3913bc9589b38acd057a</string>
+	<string>1:510368523955:ios:a1795b10cf26facebeb2c6</string>
 </dict>
 </plist>
