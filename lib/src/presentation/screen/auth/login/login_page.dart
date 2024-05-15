@@ -1,24 +1,32 @@
+import 'package:firefly_task/src/config/di/injection.dart';
+import 'package:firefly_task/src/core/constants/image_const.dart';
+import 'package:firefly_task/src/core/utils/utils.dart';
+import 'package:firefly_task/src/presentation/bloc/auth/auth_bloc.dart';
 import 'package:firefly_task/src/presentation/screen/auth/register/components/button.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
+import '../../../../config/routes/app_router.dart';
 
 class LoginPage extends StatefulWidget {
-   LoginPage({super.key});
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
 }
 
 class _LoginPageState extends State<LoginPage> {
+  TextEditingController email = TextEditingController();
+  TextEditingController pass = TextEditingController();
 
-
-  
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xffEAECF0),
       appBar: AppBar(
         elevation: 0,
+        automaticallyImplyLeading: false,
         title: Row(
           children: [
             Container(
@@ -34,18 +42,21 @@ class _LoginPageState extends State<LoginPage> {
                   Radius.circular(16),
                 ),
               ),
-              alignment: Alignment.center, // Align the content in the center
+              alignment: Alignment.center,
+              // Align the content in the center
               child: const Icon(
                 Icons.arrow_back_ios,
                 size: 24,
               ),
             ),
             const SizedBox(width: 8), // Adding space between icon and text
-            const Text("Continue with E-mail",
-                style: TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.w700,
-                ))
+            const Text(
+              "Continue with E-mail",
+              style: TextStyle(
+                fontSize: 24,
+                fontWeight: FontWeight.w700,
+              ),
+            )
           ],
         ),
       ),
@@ -71,9 +82,8 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 TextFormField(
-                  // controller: email,
+                  controller: email,
                   decoration: const InputDecoration(
-                    
                     labelStyle: TextStyle(
                       color: Color(0xFF040415),
                       fontSize: 18,
@@ -85,13 +95,13 @@ class _LoginPageState extends State<LoginPage> {
                       borderSide: BorderSide(
                           color: Color(
                               0xff3BA935) // Specify your desired color here
-                          ),
+                      ),
                     ),
                     border: UnderlineInputBorder(
                       borderSide: BorderSide(
                           color: Color(
                               0xff3BA935) // Specify your desired color here
-                          ),
+                      ),
                     ),
                   ),
                 ),
@@ -105,12 +115,11 @@ class _LoginPageState extends State<LoginPage> {
                     fontSize: 12,
                     fontFamily: 'Airbnb Cereal',
                     fontWeight: FontWeight.w700,
-                    height: 0.16,
                     letterSpacing: 1,
                   ),
                 ),
                 TextFormField(
-                  // controller: pass,
+                  controller: pass,
                   decoration: const InputDecoration(
                     label: Text("Enter your password"),
                     labelStyle: TextStyle(
@@ -118,19 +127,18 @@ class _LoginPageState extends State<LoginPage> {
                       fontSize: 18,
                       fontFamily: 'Airbnb Cereal',
                       fontWeight: FontWeight.w500,
-                      height: 0.07,
                     ),
                     focusedBorder: UnderlineInputBorder(
                       borderSide: BorderSide(
                           color: Color(
                               0xff3BA935) // Specify your desired color here
-                          ),
+                      ),
                     ),
                     border: UnderlineInputBorder(
                       borderSide: BorderSide(
                           color: Color(
                               0xff3BA935) // Specify your desired color here
-                          ),
+                      ),
                     ),
                   ),
                 ),
@@ -150,17 +158,48 @@ class _LoginPageState extends State<LoginPage> {
             Column(
               children: [
                 TextButton(
-                    onPressed: () {},
-                    child: Text("Don’t have account? Let’s create!",
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w500,
-                        ))),
-                Button(
-                  title: "Next",
-                  color: Color(0xFF543B59),
-                  icon: "",
+                  onPressed: () {
+
+                  },
+                  child: Text(
+                    "Don’t have account? Let’s create!",
+                    style: TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                  ),
                 ),
+                BlocProvider(
+                  create: (context) => locator<AuthBloc>(),
+                  child: BlocConsumer<AuthBloc, AuthState>(
+                    listener: (context, state) {
+                      if (state.status == AuthStatus.failure) {
+                        AppUtils.msg(
+                            context, "Failure, Check your network connection!",
+                            status: MessageStatus.failure);
+                      }
+                      if (state.status == AuthStatus.succes) {
+                        AppUtils.msg(context, "Success");
+                        context.pushNamed(Routes.chooseGender);
+                      }
+                    },
+                    builder: (context, state) {
+                      return Button(
+                        title: "Next",
+                        onTap: () {
+                          // context.read<AuthBloc>().add(SignInEvent(
+                          //     email: email.text.trim(), password: pass.text.trim()));
+                          context.read<AuthBloc>().add(SignUpEvent(
+                              email: email.text.trim(), password: pass.text.trim()));
+
+                        },
+                        color: Color(0xFF543B59),
+                        icon: ImageConst.login,
+                      );
+                    },
+                  ),
+                ),
+
               ],
             ),
           ],

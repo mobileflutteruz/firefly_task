@@ -26,7 +26,6 @@ class _ButtonState extends State<Button> {
       child: Column(
         children: [
           Container(
-            width: 345,
             height: 52,
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
             decoration: ShapeDecoration(

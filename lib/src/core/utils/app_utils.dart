@@ -143,21 +143,21 @@ sealed class AppUtils {
 
   static BorderRadius radiusAll8 = BorderRadius.circular(8);
 
-  // static void msg(BuildContext context, String message, {MessageStatus status= MessageStatus.succes}) {
-  //   awesomeTopSnackbar(
-  //     context,
-  //     message,
-  //     // textStyle: const TextStyle(
-  //     //     color: Color.fromARGB(255, 20, 64, 83), fontStyle: FontStyle.italic, fontWeight: FontWeight.w400, fontSize: 24),
-  //     backgroundColor: status==MessageStatus.succes?const Color(0xFF5d9e52):const Color(0xFFc23f38),
-  //     // icon: const Icon(CupertinoIcons.clear_circled, color: Colors.white),
-  //     // iconWithDecoration: BoxDecoration(
-  //     //   borderRadius: BorderRadius.circular(20),
-  //     //   border: Border.all(color: Colors.white),
-  //     // ),
-  //   );
-  //
-  // }
+  static void msg(BuildContext context, String message, {MessageStatus status= MessageStatus.succes}) {
+    awesomeTopSnackbar(
+      context,
+      message,
+      // textStyle: const TextStyle(
+      //     color: Color.fromARGB(255, 20, 64, 83), fontStyle: FontStyle.italic, fontWeight: FontWeight.w400, fontSize: 24),
+      backgroundColor: status==MessageStatus.succes?const Color(0xFF5d9e52):const Color(0xFFc23f38),
+      // icon: const Icon(CupertinoIcons.clear_circled, color: Colors.white),
+      // iconWithDecoration: BoxDecoration(
+      //   borderRadius: BorderRadius.circular(20),
+      //   border: Border.all(color: Colors.white),
+      // ),
+    );
+
+  }
 }
 
 
